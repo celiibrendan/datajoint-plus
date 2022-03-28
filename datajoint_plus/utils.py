@@ -239,7 +239,7 @@ def goto(table_id=None, full_table_name=None, directory='__main__', warn=True):
             logger.warning(f'table_id did not match to any tables. Are you searching the correct directory?')
 
 
-def configure_logger(filename=None, level=config['loglevel'], format='%(asctime)s - %(name)s:%(levelname)s:%(message)s', datefmt="%m-%d-%Y %I:%M:%S %p %Z", force=True):
+def configure_logger(filename=None, level=config['loglevel'], format='%(asctime)s - %(name)s:%(levelname)s:%(message)s', datefmt="%m-%d-%Y %I:%M:%S %p %Z",):# force=True):
     if filename is not None:
         filename = Path(filename)
 
@@ -251,8 +251,7 @@ def configure_logger(filename=None, level=config['loglevel'], format='%(asctime)
         'ERROR': logging.ERROR,
         None:  logging.NOTSET
     }
-
-    return logging.basicConfig(filename=filename, level=log_levels[level], format=format, datefmt=datefmt, force=force)
+    return logging.basicConfig(filename=filename, level=log_levels[level], format=format, datefmt=datefmt,) #force=force)
 
 
 def user_choice_with_default_response(default_response=None):
